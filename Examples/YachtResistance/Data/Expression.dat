@@ -1,0 +1,24 @@
+<Flood version='3.0' class='MultilayerPerceptron' content='Expression'>
+<InputsScaling>
+scaled_LCB =(LCB --2.38182)/1.51322;
+scaled_Cp =(Cp -0.564136)/0.02329;
+scaled_LWL/DIS^(1/3) =(LWL/DIS^(1/3) -4.78864)/0.253057;
+scaled_BWL/Tc =(BWL/Tc -3.93682)/0.548193;
+scaled_LWL/BWL =(LWL/BWL -3.20682)/0.247998;
+scaled_Fn (Rr*1000)/(g*mh)=(Fn (Rr*1000)/(g*mh)-0.2875)/0.100942;
+</InputsScaling>
+<ForwardPropagation>
+y11=tanh(0.510836+3.77152*scaled_LCB +1.09067*scaled_Cp -1.50634*scaled_LWL/DIS^(1/3) -3.83961*scaled_BWL/Tc +4.41321*scaled_LWL/BWL -0.274159*scaled_Fn (Rr*1000)/(g*mh));
+y12=tanh(2.35946-0.0201123*scaled_LCB +0.0340003*scaled_Cp -0.0904004*scaled_LWL/DIS^(1/3) +0.118228*scaled_BWL/Tc +0.0937774*scaled_LWL/BWL -1.38216*scaled_Fn (Rr*1000)/(g*mh));
+y13=tanh(1.33031-0.14822*scaled_LCB -0.180418*scaled_Cp -1.22204*scaled_LWL/DIS^(1/3) -0.116688*scaled_BWL/Tc +0.351732*scaled_LWL/BWL -1.20528*scaled_Fn (Rr*1000)/(g*mh));
+y14=tanh(-3.67616-1.19478*scaled_LCB +3.78738*scaled_Cp -8.10143*scaled_LWL/DIS^(1/3) +0.552278*scaled_BWL/Tc -3.58718*scaled_LWL/BWL -3.104*scaled_Fn (Rr*1000)/(g*mh));
+y15=tanh(3.01647+1.63204*scaled_LCB -2.46059*scaled_Cp +5.82925*scaled_LWL/DIS^(1/3) +6.21326*scaled_BWL/Tc -3.44741*scaled_LWL/BWL -0.79338*scaled_Fn (Rr*1000)/(g*mh));
+y16=tanh(0.454574-0.205162*scaled_LCB -0.0031149*scaled_Cp -0.0201925*scaled_LWL/DIS^(1/3) +0.00977996*scaled_BWL/Tc +0.0548842*scaled_LWL/BWL -0.0184512*scaled_Fn (Rr*1000)/(g*mh));
+y17=tanh(0.253763-2.48705*scaled_LCB +0.75229*scaled_Cp +2.3463*scaled_LWL/DIS^(1/3) -2.90901*scaled_BWL/Tc -0.73789*scaled_LWL/BWL -0.279384*scaled_Fn (Rr*1000)/(g*mh));
+y18=tanh(3.60235+1.16649*scaled_LCB -3.70087*scaled_Cp +7.94979*scaled_LWL/DIS^(1/3) -0.581781*scaled_BWL/Tc +3.44123*scaled_LWL/BWL +3.05593*scaled_Fn (Rr*1000)/(g*mh));
+y19=tanh(-0.901452-0.317514*scaled_LCB +3.7974*scaled_Cp +4.72537*scaled_LWL/DIS^(1/3) +3.90652*scaled_BWL/Tc +1.45808*scaled_LWL/BWL -2.24365*scaled_Fn (Rr*1000)/(g*mh));
+scaled_(Rr*1000)/(g*mh)=(5.03893-0.562406*y11-3.55152*y12-0.0816026*y13+5.45137*y14-0.115484*y15-4.78315*y16+0.717671*y17+5.52829*y18+0.0643048*y19);
+</ForwardPropagation>
+<OutputsUnscaling>
+(Rr*1000)/(g*mh)=10.4954+15.1605*scaled_(Rr*1000)/(g*mh);
+</OutputsUnscaling>
